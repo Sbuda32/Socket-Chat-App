@@ -13,6 +13,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-httpServer.listen(8080, () => {
+httpServer.listen(7000, () => {
     console.log('Http server running');
 });
