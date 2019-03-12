@@ -6,11 +6,11 @@ const http = require('http');
 const httpServer = http.createServer(app);
 
 //Set template engine and views folder
-app.use('views engine', 'pug');
-app.use('views', '/views/');
+app.set('view engine', 'pug');
+app.set('views', './views/');
 
 app.get('/', (req, res) => {
-    res.send('<h1> Hello World </h1>');
+    res.render('index');
 });
 
 httpServer.listen(8080, () => {
