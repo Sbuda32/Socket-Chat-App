@@ -2,6 +2,7 @@
 const express = require('express');
 const http = require('http');
 const socket = require('socket.io');
+const path = require('path');
 
 //Initialize express app
 const app = express();
@@ -10,7 +11,7 @@ const app = express();
 const httpServer = http.createServer(app);
 
 //Bring public folder on load
-app.use(express.static('/public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
 //Initialize Socket.io
 const io = socket(httpServer);
@@ -25,6 +26,13 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
     console.log('user connected');
+    socket.on('connect', () => {
+        console.log('User connected');
+    });
+
+    socket.on('disconnect', () => {
+        console.log("User disconnected");
+    });
 });
 
 httpServer.listen(7000, () => {
