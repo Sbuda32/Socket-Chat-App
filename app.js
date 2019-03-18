@@ -21,7 +21,7 @@ app.set('view engine', 'pug');
 app.set('views', './views/');
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('welcome');
 });
 
 io.on('connection', (socket) => {
