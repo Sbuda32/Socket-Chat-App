@@ -8,7 +8,7 @@ const path = require('path');
 const app = express();
 
 //Declaring array to hold nicknames
-var nicknames = [];
+//var nicknames = [];
 
 //create http server
 const httpServer = http.createServer(app);
@@ -20,39 +20,33 @@ app.use(express.static(path.join(__dirname, '/public')));
 const io = socket(httpServer);
 
 //Set template engine and views folder
-app.set('view engine', 'pug');
-app.set('views', './views/');
+//app.set('view engine', 'pug');
+//app.set('views', './views/');
 
 //Url to Home page/Root directory
-app.get('/', (req, res) => {
+/**app.get('/', (req, res) => {
     res.render('chat-box');
-});
+}); */
 
-app.get('/chat-box', (req, res) => {
+/** app.get('/chat-box', (req, res) => {
     res.render('chat-box', {basedir: __dirname + '/views'});
-});
+});*/
 
 io.on('connection', (socket) => {
     console.log('user connected');
+
+    socket.on('new user', () => {
+        console.log('new user joined');
+        socket.broadcast.emit('new user');
+    });
+
+    socket.on('new message', (msg) => {
+        console.log('message :' + msg);
+        io.emit('new message', msg);
+    });
+
     socket.on('connect', () => {
         console.log('User connected');
-    });
-
-    socket.on('new user', (data, callback) => {
-        console.log('new user entered');
-        if(nicknames.indexOf(data) != -1){
-            callback(false);
-        }
-        else{
-            callback(true);
-            socket.nickname = data;
-            nicknames.push(socket.nickname);
-        }
-    });
-
-    socket.on('chat message', (msg) => {
-        console.log('message :' + msg);
-        io.emit('chat message', msg);
     });
 
     socket.on('disconnect', () => {
