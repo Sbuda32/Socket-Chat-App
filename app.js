@@ -23,8 +23,9 @@ const io = socket(httpServer);
 app.set('view engine', 'pug');
 app.set('views', './views/');
 
+//Url to Home page/Root directory
 app.get('/', (req, res) => {
-    res.render('welcome');
+    res.render('chat-box');
 });
 
 app.get('/chat-box', (req, res) => {
