@@ -11,11 +11,29 @@ socket.on('connect', () => {
     });
     
     socket.on('new message', (msg) => {
-        console.log('message: ' + msg);
+        
+        let li = $('<li></li>');
+        
+        li.text('message: ' + msg);
+        $('#messages').append(li);
     });
 
 });
 
 socket.on('disconnect', () => {
     console.log('Disconnected from server');
+});
+
+console.log('second last')
+
+$(document).ready(function(){
+
+    $('#button').click((e) => {
+        $('message-form').submit();
+
+        var text = $('[name=message]').val();
+        //console.log(`message: ${text}`);
+
+        socket.emit('new message', text);
+    });
 });
