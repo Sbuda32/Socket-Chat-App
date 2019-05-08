@@ -7,9 +7,6 @@ const path = require('path');
 //Initialize express app
 const app = express();
 
-//Declaring array to hold nicknames
-//var nicknames = [];
-
 //create http server
 const httpServer = http.createServer(app);
 
@@ -20,13 +17,13 @@ app.use(express.static(path.join(__dirname, '/public')));
 const io = socket(httpServer);
 
 //Set template engine and views folder
-//app.set('view engine', 'pug');
-//app.set('views', './views/');
+app.set('view engine', 'pug');
+app.set('views', './views/');
 
 //Url to Home page/Root directory
-/**app.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.render('chat-box');
-}); */
+});
 
 /** app.get('/chat-box', (req, res) => {
     res.render('chat-box', {basedir: __dirname + '/views'});

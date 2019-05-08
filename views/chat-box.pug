@@ -1,34 +1,18 @@
 doctype html
 html
     head
-        title Chat App
-        //link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+        title Web-Chat-App
+        link(rel="stylesheet", href="../public/css/stylesheet.css")
         block scripts
-            //script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js")
-            //script(src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous")
+            script(src="../public/js/jquery-3.4.0.js")
             script(src="socket.io/socket.io.js")
-            script.
-                var socket = io();
-                 
-                socket.on('connect', function (){
-                    console.log("Connected to Server");
-                });
-
-                socket.on('chat message', function (msg) {
-                    console,log("message: ", msg);
-                    //$('#messages').append($('<li>').text(msg));
-                });
+            script(src="../public/js/client-side.js")
                 
     body
         block content
             ul(id="messages")
 
-        block foot
-            form(action="")
-                .input-group.mb-4.fixed-bottom
-                    .input-group-prepend
-                        span.input-group-text >
-                        input.form-control(id="m" placeholder="write message" type="text")
+        
 
         
                     
