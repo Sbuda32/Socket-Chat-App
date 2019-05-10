@@ -4,13 +4,18 @@ html
         title Web-Chat-App
         link(rel="stylesheet", href="../public/css/stylesheet.css")
         block scripts
-            script(src="../public/js/jquery-3.4.0.js")
+            script(src="")
             script(src="socket.io/socket.io.js")
             script(src="../public/js/client-side.js")
                 
     body
-        block content
-            ul(id="messages")
+        h3 Chat App
+        div(id="messages")
+
+        block scripts
+            script(src="https://unpkg.com/react@16/umd/react.development.js" crossorigin)
+            script(src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin)
+            script(src="../public/js/message-box.js")
 
         
 
