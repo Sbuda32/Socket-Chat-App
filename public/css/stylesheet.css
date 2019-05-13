@@ -3,6 +3,42 @@
     margin-top: 20%;
 }
 
-h3 {
+h1 {
     text-align: center;
+    font-family: quantify;
+}
+
+@font-face {
+    font-family: quantify;
+    src: url('./Quantify.ttf');
+}
+
+#header {
+    border: 0.5px solid black;
+    border-radius: 10px;
+}
+
+#text-box {
+    width: 91%;
+    height: 33px;
+    position: absolute;
+    left: 23px;
+    bottom: 10px;
+    box-sizing: border-box;
+    font-family: quantify;
+}
+
+::placeholder {
+    font-size: 20px;
+    padding-left: 32px;
+}
+
+#send-botton {
+    position: absolute;
+    bottom: 10px;
+    left: 952px;
+    width: 45px;
+    height: 33px;
+    box-sizing: border-box;
+    font-size: 20px;
 }

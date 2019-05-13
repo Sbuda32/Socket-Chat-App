@@ -2,20 +2,26 @@ doctype html
 html
     head
         title Web-Chat-App
-        link(rel="stylesheet", href="../public/css/stylesheet.css")
+        link(rel="stylesheet", href="/css/stylesheet.css", type="text/css")
         block scripts
-            script(src="")
+            script(src="/js/jquery-3.4.0.js")
             script(src="socket.io/socket.io.js")
-            script(src="../public/js/client-side.js")
+            script(src="/js/client-side.js")
                 
     body
-        h3 Chat App
-        div(id="messages")
+        div#header
+            h1 Chat App
+        
+        div#messages
+
+        form(action="")
+            input#text-box(type="text", name="text-box", placeholder="Type message here")
+            input#send-botton(type="button", value=">")
 
         block scripts
             script(src="https://unpkg.com/react@16/umd/react.development.js" crossorigin)
             script(src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin)
-            script(src="../public/js/message-box.js")
+            script(src="/js/message-box.js")
 
         
 
