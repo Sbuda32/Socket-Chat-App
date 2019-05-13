@@ -28,11 +28,11 @@ console.log('second last')
 
 $(document).ready(function(){
 
-    $('#button').click((e) => {
+    $('#send-button').click((e) => {
         $('message-form').submit();
 
-        var text = $('[name=message]').val();
-        //console.log(`message: ${text}`);
+        var text = $('[name=text-box]').val();
+        console.log(`message: ${text}`);
 
         socket.emit('new message', text);
     });
