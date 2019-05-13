@@ -51,6 +51,6 @@ io.on('connection', (socket) => {
     });
 });
 
-httpServer.listen(7000, () => {
+httpServer.listen(5000, () => {
     console.log('Http server running');
 });

@@ -42,3 +42,29 @@ h1 {
     box-sizing: border-box;
     font-size: 20px;
 }
+
+.message-box {
+    width: 100%;
+    height: auto;
+}
+
+.user-pic {
+    width: 69px;
+    height: 69px;
+    background-color: crimson;
+    float: left;
+    margin-left: 3%;
+    border-radius: 50%;
+    margin-top: 1%;
+}
+
+.text-message {
+    padding: 0;
+    width: 90%;
+    height: 30px;
+    background-color: burlywood;
+    float: right;
+    margin-top: 2.9%;
+    border-radius: 20px;
+}
+
