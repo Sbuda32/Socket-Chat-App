@@ -11,14 +11,14 @@ const app = express();
 const httpServer = http.createServer(app);
 
 //Bring public folder on load
-app.use(express.static(path.join(__dirname, '/client/build')));
+app.use(express.static(path.join(__dirname, '/public/')));
 
 //Initialize Socket.io
 const io = socket(httpServer);
 
 //Set template engine and views folder
 app.set('view engine', 'pug');
-app.set('views', './client/views/');
+app.set('views', './views/');
 
 //Url to Home page/Root directory
 app.get('/', (req, res) => {
