@@ -51,6 +51,6 @@ io.on('connection', (socket) => {
     });
 });
 
-httpServer.listen(5000, () => {
+httpServer.listen(process.env.PORT || 5000, () => {
     console.log('Http server running');
 });
