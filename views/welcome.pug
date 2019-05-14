@@ -1,0 +1,26 @@
+doctype
+html
+    head
+        title Chat - App
+
+        //link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
+        link(href="/stylesheet.css" type="text/css" rel="stylesheet")
+
+        block scripts
+            script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js")
+            //script(src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous")
+            script(src="socket.io/socket.io.js")
+            script.
+                var socket = io();
+
+                socket.on('connect', function (){
+                    console.log("Connected to Server");
+                });
+
+    body
+        block content
+            .container.middlePosition
+                form.form-group(action="/chat-box", method="get")
+                    h4.text-center Enter your nickname
+                    input.form-control.w-25.mx-auto(type="text" id="name" name="nickname" placeholder="Here")
+                    input.form-control.w-25.mx-auto.btn-primary.mt-2(type="submit" id="submit" value="Submit")
