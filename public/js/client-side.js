@@ -49,15 +49,15 @@ $(document).ready(function(){
         }
     });
 
-    //Listen for the button 
+    //Listen for when the send button is clicked
     $('#send-button').click((e) => {
-        $('message-form').submit();
+        $('message-form').submit(); //Submit form
         
-        e.preventDefault();
+        e.preventDefault(); //Stop page from reloading
 
-        var text = $('[name=text-box]').val();
-        console.log(`message: ${text}`);
+        var text = $('[name=text-box]').val();   //Get text message from text box
+        console.log(`message: ${text}`);    //Not for production
 
-        socket.emit('new message', text);
+        socket.emit('new message', text);   //Send message to server for other users to see
     });
 });
