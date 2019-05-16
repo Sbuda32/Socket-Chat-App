@@ -1,3 +1,5 @@
+import moment = require("moment");
+
 //Variable to hold socket connection behaviour and properties
 var socket = io();
 
@@ -37,6 +39,13 @@ socket.on('disconnect', () => {
     console.log('Disconnected from server'); //Print message to console
 });
 
+function generateMsgObj(textMsg) {
+    return {
+        textMessage: textMsg,
+        timestamp: moment().format()
+    }
+}
+
 //Using JQuery to handle window events and the form submittion
 $(document).ready(function(){
 
@@ -56,8 +65,11 @@ $(document).ready(function(){
         e.preventDefault(); //Stop page from reloading
 
         var text = $('[name=text-box]').val();   //Get text message from text box
-        console.log(`message: ${text}`);    //Not for production
 
-        socket.emit('new message', text);   //Send message to server for other users to see
+        var msg = generateMsgObj(text);
+
+        console.log(`message: ${msg.textMessage}`);    //Not for production
+
+        socket.emit('new message', msg);   //Send message to server for other users to see
     });
 });

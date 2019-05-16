@@ -3,6 +3,7 @@ const express = require('express');
 const http = require('http');
 const socket = require('socket.io');
 const path = require('path');
+const moment = require('moment');
 
 //Initialize express app
 const app = express();
@@ -37,7 +38,7 @@ io.on('connection', (socket) => {
 
     //Listen for messages coming from client side
     socket.on('new message', (msg) => {
-        console.log('message :' + msg);
+        console.log('message :' + msg.textMessage);
         io.emit('new message', msg); //Send user message to other users to view in chat page
     });
 
