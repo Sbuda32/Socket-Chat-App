@@ -1,5 +1,3 @@
-import moment = require("moment");
-
 //Variable to hold socket connection behaviour and properties
 var socket = io();
 
@@ -24,9 +22,9 @@ socket.on('connect', () => {
     //Listen for new message coming from server
     //@param {msg} represents message data from server, sent by the user 
     socket.on('new message', (msg) => {
-        
+        console.log(msg);
         //Message box with User Picture and the User message
-        let $newMessage = $('<div class="message-box"> <div class="user-pic"></div> <div class="text-message"> <p>'+ msg + '</p> </div> </div>');
+        let $newMessage = $('<div class="message-box"> <div class="user-pic"></div> <div class="text-message"> <p>'+ msg.textMessage + '</p> </div> <div class="time-stamp">' + msg.createdAt + '</div> </div>');
         
         //Append new message to messages in the page already
         $('#messages').append($newMessage);
@@ -40,10 +38,13 @@ socket.on('disconnect', () => {
 });
 
 function generateMsgObj(textMsg) {
-    return {
+
+    var message =  {
         textMessage: textMsg,
-        timestamp: moment().format()
+        createdAt: moment().format('dddd HH:mm a')
     }
+
+    return message;
 }
 
 //Using JQuery to handle window events and the form submittion
@@ -65,7 +66,7 @@ $(document).ready(function(){
         e.preventDefault(); //Stop page from reloading
 
         var text = $('[name=text-box]').val();   //Get text message from text box
-
+        console.log(text);
         var msg = generateMsgObj(text);
 
         console.log(`message: ${msg.textMessage}`);    //Not for production
