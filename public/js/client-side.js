@@ -24,7 +24,7 @@ socket.on('connect', () => {
     socket.on('new message', (msg) => {
         console.log(msg);
         //Message box with User Picture and the User message
-        let $newMessage = $('<div class="message-box"> <div class="user-pic"></div> <div class="text-message"> <p>'+ msg.textMessage + '</p> </div> <div class="time-stamp">' + msg.createdAt + '</div> </div>');
+        let $newMessage = $('<div class="message-box"> <div class="user-pic"></div> <div class="text-message"> <p class="text" >'+ msg.textMessage + '</p> </div> <div class="time-stamp"> <p class="time" > ' + msg.createdAt + ' </p> </div> </div>');
         
         //Append new message to messages in the page already
         $('#messages').append($newMessage);

@@ -55,5 +55,5 @@ io.on('connection', (socket) => {
 
 //Host app loacl at port 5000
 httpServer.listen(process.env.PORT || 5000, () => {
-    console.log('Http server running');
+    console.log('Http server running at http://localhost:5000');
 });
